@@ -37,15 +37,14 @@ sudo apt install -y curl gnupg2 software-properties-common apt-transport-https c
  
 # Add Docker repo
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo add-apt-repository "deb [arch=arm64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
  
 # Install containerd
 sudo apt update
 sudo apt install -y containerd.io
  
 # Configure containerd and start service
-sudo su -
-mkdir -p /etc/containerd
+sudo mkdir -p /etc/containerd
 containerd config default>/etc/containerd/config.toml
  
 # restart containerd
